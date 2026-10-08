@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foodies — Eksplorasi Kelezatan Kuliner Nusantara | The Vast Indonesian Culinary Journey</title>
+  <meta name="description" content="Jelajahi kekayaan dan kelezatan kuliner Indonesia dari Sabang sampai Merauke. Rekomendasi kuliner autentik untuk wisatawan dan asisten kuliner AI cerdas.">
+  <meta name="keywords" content="Indonesian food, kuliner nusantara, rendang, sate, nasi goreng, gado-gado, tourist food guide, indonesian dishes">
+  <meta property="og:title" content="Foodies — Jelajahi Kelezatan Kuliner Nusantara">
+  <meta property="og:description" content="Temukan ribuan cita rasa dari 17.000 pulau Indonesia. Dilengkapi rekomendasi wisata kuliner dan Asisten AI ramah wisatawan.">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span class="top-bar-badge" data-i18n="topBarBadge">✨ Warisan Cita Rasa Dunia</span>
+      <span class="top-bar-text" data-i18n="topBarText">Lebih dari 5.300 resep tradisional melintasi 17.000 pulau eksotis Indonesia</span>
+      <div class="lang-switch-wrapper">
+        <span class="lang-label" data-i18n="langLabel">Bahasa:</span>
+        <div class="lang-switch" id="langSwitch" role="group" aria-label="Language Selector">
+          <button type="button" class="lang-btn active" data-lang="id" id="btnLangId">
+            <span class="flag">🇮🇩</span> <span class="lang-code">ID</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="en" id="btnLangEn">
+            <span class="flag">🇬🇧</span> <span class="lang-code">EN</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Foodies Home">
+        <div class="logo-symbol">
+          <span class="logo-flame">🌶️</span>
+        </div>
+        <div class="brand-text">
+          <span class="logo-title">Foodies<span class="dot">.</span></span>
+          <span class="logo-subtitle" data-i18n="logoSub">Kuliner Nusantara</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero" class="nav-item active" data-i18n="navHome">Beranda</a>
+        <a href="#recommendations" class="nav-item" data-i18n="navRecs">Rekomendasi Wisata</a>
+        <a href="#regions" class="nav-item" data-i18n="navRegions">Jelajah Nusantara</a>
+        <a href="#tourist-guide" class="nav-item" data-i18n="navGuide">Panduan Wisatawan</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-secondary nav-chat-trigger" id="navChatTrigger" aria-label="Open AI Chatbot">
+          <span class="icon">💬</span>
+          <span data-i18n="navAskAI">Tanya AI Foodies</span>
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="pill-spark">🌟</span>
+          <span class="pill-text" data-i18n="heroPill">Sensasi Cita Rasa Kepulauan Terbesar di Dunia</span>
+        </div>
+        
+        <h1 class="hero-title">
+          <span data-i18n="heroTitlePart1">Jelajahi Jiwa & Kelezatan</span>
+          <span class="gradient-text" data-i18n="heroTitleHighlight">Kuliner Indonesia</span>
+        </h1>
+        
+        <p class="hero-description" data-i18n="heroDesc">
+          Dari karamelisasi Rendang Minang yang dinobatkan terbaik dunia, kehangatan rempah Soto Betawi, hingga aroma sate bakar arang kelapa. Temukan kekayaan rasa otentik yang memikat setiap lidah dari lintas generasi dan seluruh penjuru dunia.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#recommendations" class="btn btn-primary btn-lg" id="btnExplore">
+            <span class="btn-text" data-i18n="heroBtnExplore">Mulai Eksplorasi Makanan</span>
+            <span class="btn-icon">→</span>
+          </a>
+          <button type="button" class="btn btn-glass btn-lg" id="btnHeroChat">
+            <span class="btn-icon">🤖</span>
+            <span class="btn-text" data-i18n="heroBtnChat">Konsultasi dengan AI Foodie</span>
+          </button>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-number">17.000+</span>
+            <span class="stat-label" data-i18n="statIslands">Pulau Tropis</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <span class="stat-number">5.300+</span>
+            <span class="stat-label" data-i18n="statDishes">Resep Tradisional</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <span class="stat-number">#1</span>
+            <span class="stat-label" data-i18n="statCNN">Makanan Terbaik Dunia (CNN)</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-card">
+            <span class="stat-number">100+</span>
+            <span class="stat-label" data-i18n="statSambal">Varian Sambal Unik</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Showcase -->
+      <div class="hero-visual">
+        <div class="visual-card-wrapper">
+          <div class="hero-main-img-container">
+            <img src="assets/hero-rendang.jpg" alt="Rendang Daging Sapi Minangkabau" class="hero-main-img" id="heroMainImg">
+            <div class="img-gradient-overlay"></div>
+            
+            <div class="floating-badge badge-top-right">
+              <span class="badge-icon">🏆</span>
+              <div>
+                <strong data-i18n="badgeAwardTitle">CNN World's Best Food</strong>
+                <p data-i18n="badgeAwardSub">Rendang #1 Global Recognition</p>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom-left">
+              <span class="badge-icon">🌿</span>
+              <div>
+                <strong data-i18n="badgeHeritageTitle">Bumbu & Rempah Asli</strong>
+                <p data-i18n="badgeHeritageSub">Kunyit, Lengkuas, Serai, Santan</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini interactive tasting card snippet -->
+          <div class="hero-dish-preview" id="heroDishPreview">
+            <div class="preview-header">
+              <span class="preview-tag" data-i18n="previewTag">Ikon Kuliner Nasional</span>
+              <span class="preview-spice">🌶️🌶️🌶️ Pedas Beraroma</span>
+            </div>
+            <div class="preview-body">
+              <h4 id="previewDishTitle">Rendang Daging Sapi</h4>
+              <p id="previewDishDesc" data-i18n="previewRendangBrief">Daging sapi empuk dimasak perlahan berjam-jam dalam santan kelapa pekat dan racikan bumbu rempah aromatik.</p>
+            </div>
+            <div class="preview-footer">
+              <span class="preview-origin">📍 Sumatra Barat</span>
+              <button type="button" class="btn-text-link" id="btnPreviewDetails" data-dish-id="rendang" data-i18n="viewDetails">Lihat Cerita & Resep →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values / Why Indonesian Food -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-heading text-center">
+        <span class="section-tag" data-i18n="valuesTag">Pesona Nusantara</span>
+        <h2 class="section-title" data-i18n="valuesTitle">Mengapa Kuliner Indonesia Sangat Istimewa?</h2>
+        <p class="section-subtitle" data-i18n="valuesSub">
+          Setiap piring adalah perpaduan harmonis antara sejarah jalur rempah dunia, kearifan lokal, dan keragaman biodiversitas tropis yang tiada duanya.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🥥</div>
+          <h3 class="value-title" data-i18n="val1Title">Kekayaan Bumbu Dasar</h3>
+          <p class="value-desc" data-i18n="val1Desc">Sistem bumbu merah, bumbu kuning, dan bumbu putih yang mengolah rempah segar seperti kunyit, jahe, ketumbar, dan lengkuas.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🍲</div>
+          <h3 class="value-title" data-i18n="val2Title">Keseimbangan Rasa Komprehensif</h3>
+          <p class="value-desc" data-i18n="val2Desc">Paduan sempurna antara pedas, gurih santan, manis gula aren, segar asam kandis/belimbing wuluh, dan aroma daun salam & jeruk.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🥢</div>
+          <h3 class="value-title" data-i18n="val3Title">Ramah Segala Generasi & Diet</h3>
+          <p class="value-desc" data-i18n="val3Desc">Tersedia ragam kuliner mulai dari yang lembut bebas pedas untuk anak & manula, menu nabati kaya protein tempe & tahu, hingga santapan daging halal bercita rasa tinggi.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🗺️</div>
+          <h3 class="value-title" data-i18n="val4Title">Eksplorasi Tak Terbatas</h3>
+          <p class="value-desc" data-i18n="val4Desc">Setiap provinsi memiliki karakter kuliner unik: dari kuah kuning rempah Maluku, gurih manis Jawa, hingga kesegaran dabu-dabu pesisir Sulawesi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations Section -->
+  <section class="recs-section" id="recommendations">
+    <div class="container">
+      <div class="section-heading">
+        <div class="heading-left">
+          <span class="section-tag" data-i18n="recsTag">Rekomendasi Wisata Kuliner</span>
+          <h2 class="section-title" data-i18n="recsTitle">Hidangan Ikonik Wajib Coba untuk Wisatawan</h2>
+          <p class="section-subtitle" data-i18n="recsSub">
+            Pilihan hidangan terbaik nusantara yang telah dikurasi untuk wisatawan mancanegara maupun lokal dari seluruh generasi. Lengkap dengan tingkat kepedasan, profil rasa, dan panduan menikmatinya.
+          </p>
+        </div>
+        <div class="recs-counter-badge" id="recsCountBadge">
+          <span class="badge-num" id="foodCountNum">16</span>
+          <span class="badge-text" data-i18n="dishesFound">Hidangan Siap Dieksplorasi</span>
+        </div>
+      </div>
+
+      <!-- Search & Filters Container -->
+      <div class="filter-controls-card">
+        <div class="search-bar-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="foodSearchInput" class="search-input" placeholder="Cari nama makanan, bahan, atau daerah (contoh: Rendang, Soto, Bali, Tempe)..." data-i18n-placeholder="searchPlaceholder">
+          <button type="button" class="search-clear" id="searchClearBtn" aria-label="Bersihkan pencarian" style="display: none;">✕</button>
+        </div>
+
+        <div class="filter-categories-row">
+          <span class="filter-label" data-i18n="filterTasteLabel">Kategori Rasa & Tipe:</span>
+          <div class="category-pills" id="categoryPills">
+            <button class="pill-btn active" data-category="all" data-i18n="catAll">Semua Menu</button>
+            <button class="pill-btn" data-category="must-try" data-i18n="catMustTry">⭐ Wajib Coba Pertama Kali</button>
+            <button class="pill-btn" data-category="mild" data-i18n="catMild">🌱 Ramah Lidah (Tidak Pedas)</button>
+            <button class="pill-btn" data-category="soups" data-i18n="catSoups">🍲 Aneka Sup & Soto</button>
+            <button class="pill-btn" data-category="grilled" data-i18n="catGrilled">🔥 Bakaran & Sate</button>
+            <button class="pill-btn" data-category="veggie" data-i18n="catVeggie">🥗 Ramah Nabati / Vegetarian</button>
+            <button class="pill-btn" data-category="street" data-i18n="catStreet">🍡 Jajanan & Penutup Manis</button>
+          </div>
+        </div>
+
+        <div class="filter-regions-row">
+          <span class="filter-label" data-i18n="filterRegionLabel">Pilih Wilayah:</span>
+          <div class="region-pills" id="regionPills">
+            <button class="region-btn active" data-region="all" data-i18n="regAll">Seluruh Indonesia</button>
+            <button class="region-btn" data-region="sumatra" data-i18n="regSumatra">Sumatra</button>
+            <button class="region-btn" data-region="java" data-i18n="regJava">Jawa & Madura</button>
+            <button class="region-btn" data-region="bali" data-i18n="regBali">Bali & Nusa Tenggara</button>
+            <button class="region-btn" data-region="sulawesi" data-i18n="regSulawesi">Sulawesi</button>
+            <button class="region-btn" data-region="eastern" data-i18n="regEastern">Maluku, Papua & Kalimantan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Food Grid -->
+      <div class="food-grid" id="foodGrid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-icon">🍽️</div>
+        <h3 class="empty-title" data-i18n="emptyTitle">Hidangan Tidak Ditemukan</h3>
+        <p class="empty-desc" data-i18n="emptyDesc">Coba kata kunci lain atau reset filter untuk menjelajahi kembali seluruh koleksi kuliner.</p>
+        <button type="button" class="btn btn-secondary" id="btnResetFilters" data-i18n="emptyBtnReset">Reset Semua Filter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Archipelago Regions Deep Dive (The Vastness) -->
+  <section class="regions-section" id="regions">
+    <div class="container">
+      <div class="section-heading text-center">
+        <span class="section-tag" data-i18n="regionsTag">Peta Kuliner Nusantara</span>
+        <h2 class="section-title" data-i18n="regionsTitle">Keluasan Karakter Rasa Tiap Sudut Nusantara</h2>
+        <p class="section-subtitle" data-i18n="regionsSub">
+          Indonesia bukan hanya satu rasa. Setiap kepulauan memiliki filosofi rasa, teknik memasak warisan leluhur, dan bahan alami endemik tersendiri.
+        </p>
+      </div>
+
+      <div class="regions-tabs-wrapper">
+        <div class="regions-nav-tabs" id="regionNavTabs">
+          <button class="region-tab active" data-reg-tab="sumatra">
+            <span class="tab-badge">🌶️</span>
+            <div>
+              <strong data-i18n="regTabSumatraTitle">Sumatra</strong>
+              <small data-i18n="regTabSumatraSub">Pusat Rempah Berani & Gulai</small>
+            </div>
+          </button>
+
+          <button class="region-tab" data-reg-tab="java">
+            <span class="tab-badge">🍯</span>
+            <div>
+              <strong data-i18n="regTabJavaTitle">Jawa & Madura</strong>
+              <small data-i18n="regTabJavaSub">Harmoni Gurih, Manis & Kluwek</small>
+            </div>
+          </button>
+
+          <button class="region-tab" data-reg-tab="bali">
+            <span class="tab-badge">🌿</span>
+            <div>
+              <strong data-i18n="regTabBaliTitle">Bali & Lombok</strong>
+              <small data-i18n="regTabBaliSub">Aroma Base Genep & Bakaran</small>
+            </div>
+          </button>
+
+          <button class="region-tab" data-reg-tab="sulawesi">
+            <span class="tab-badge">🐟</span>
+            <div>
+              <strong data-i18n="regTabSulawesiTitle">Sulawesi</strong>
+              <small data-i18n="regTabSulawesiSub">Seafood Pesisir & Dabu-Dabu Segar</small>
+            </div>
+          </button>
+
+          <button class="region-tab" data-reg-tab="eastern">
+            <span class="tab-badge">🌴</span>
+            <div>
+              <strong data-i18n="regTabEasternTitle">Maluku, Papua & Borneo</strong>
+              <small data-i18n="regTabEasternSub">Pala Cengkeh, Kuah Kuning & Sagu</small>
+            </div>
+          </button>
+        </div>
+
+        <div class="region-tab-content" id="regionTabContent">
+          <!-- Dynamically filled by app.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tourist Guide & Etiquette -->
+  <section class="guide-section" id="tourist-guide">
+    <div class="container">
+      <div class="section-heading text-center">
+        <span class="section-tag" data-i18n="guideTag">Panduan Kuliner Wisatawan</span>
+        <h2 class="section-title" data-i18n="guideTitle">Tips Menikmati Santapan Layaknya Warga Lokal</h2>
+        <p class="section-subtitle" data-i18n="guideSub">
+          Hal-hal penting yang membuat pengalaman bersantap Anda di Indonesia menjadi menyenangkan, penuh penghormatan budaya, dan tak terlupakan.
+        </p>
+      </div>
+
+      <div class="guide-cards-grid">
+        <!-- Card 1: Etiquette -->
+        <div class="guide-card">
+          <div class="guide-card-header">
+            <span class="guide-icon">🥄</span>
+            <div>
+              <h3 class="guide-title" data-i18n="guide1Title">Etika Makan di Indonesia</h3>
+              <span class="guide-subtitle" data-i18n="guide1Sub">Sendok, Garpu & Tradisi Tangan Kanan</span>
+            </div>
+          </div>
+          <ul class="guide-list">
+            <li>
+              <strong data-i18n="guide1Point1Head">Kombinasi Sendok & Garpu:</strong>
+              <span data-i18n="guide1Point1Body"> Di sebagian besar warung dan restoran, Anda akan diberi sendok di tangan kanan dan garpu di tangan kiri untuk memotong makanan.</span>
+            </li>
+            <li>
+              <strong data-i18n="guide1Point2Head">Makan Menggunakan Tangan:</strong>
+              <span data-i18n="guide1Point2Body"> Untuk hidangan seperti nasi padang atau ayam bakar, gunakan kobokan (mangkuk air jeruk nipis) untuk membasuh tangan kanan Anda sebelum dan sesudah makan.</span>
+            </li>
+            <li>
+              <strong data-i18n="guide1Point3Head">Konsep Rumah Makan Padang:</strong>
+              <span data-i18n="guide1Point3Body"> Pelayan akan menyajikan puluhan piring hidangan di meja ("Hidang"). Anda hanya membayar piring yang disentuh atau dimakan!</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Sambal Guide -->
+        <div class="guide-card">
+          <div class="guide-card-header">
+            <span class="guide-icon">🌶️</span>
+            <div>
+              <h3 class="guide-title" data-i18n="guide2Title">Spektrum Tingkat Kepedasan Sambal</h3>
+              <span class="guide-subtitle" data-i18n="guide2Sub">Kenali Jenis Sambal Sebelum Mencoba</span>
+            </div>
+          </div>
+          <div class="sambal-meter-list">
+            <div class="sambal-item">
+              <div class="sambal-item-top">
+                <strong>Sambal Matah (Bali)</strong>
+                <span class="heat-pill mild">Sedang 🌶️</span>
+              </div>
+              <p data-i18n="sambalMatahDesc">Irisan bawang merah mentah, serai wangi, cabai rawit, minyak kelapa panas, dan perasan jeruk limau. Segar tanpa terasi mentah.</p>
+            </div>
+
+            <div class="sambal-item">
+              <div class="sambal-item-top">
+                <strong>Sambal Terasi / Bajak (Jawa)</strong>
+                <span class="heat-pill medium">Menengah 🌶️🌶️</span>
+              </div>
+              <p data-i18n="sambalTerasiDesc">Cabai merah ulek dengan terasi bakar, tomat, gula aren, dan garam. Sangat gurih dan nikmat dipadukan dengan lalapan sayur segar.</p>
+            </div>
+
+            <div class="sambal-item">
+              <div class="sambal-item-top">
+                <strong>Sambal Dabu-Dabu (Manado)</strong>
+                <span class="heat-pill medium">Pedas Segar 🌶️🌶️</span>
+              </div>
+              <p data-i18n="sambalDabuDesc">Potongan dadu tomat merah-hijau segar, cabai rawit, bawang, dan air lemon cui. Pendamping ideal ikan bakar laut.</p>
+            </div>
+
+            <div class="sambal-item">
+              <div class="sambal-item-top">
+                <strong>Sambal Korek / Bawang</strong>
+                <span class="heat-pill hot">Sangat Pedas 🌶️🌶️🌶️</span>
+              </div>
+              <p data-i18n="sambalKorekDesc">Cabai rawit merah murni dan bawang putih digiling kasar disiram minyak mendidih. Waspada bila Anda sensitif terhadap rasa pedas!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Food Dictionary -->
+        <div class="guide-card">
+          <div class="guide-card-header">
+            <span class="guide-icon">📖</span>
+            <div>
+              <h3 class="guide-title" data-i18n="guide3Title">Kamus Singkat Menu Indonesia</h3>
+              <span class="guide-subtitle" data-i18n="guide3Sub">Kosakata Praktis Saat Membaca Buku Menu</span>
+            </div>
+          </div>
+          <div class="vocab-grid">
+            <div class="vocab-pill">
+              <span class="vocab-term">Goreng</span>
+              <span class="vocab-def" data-i18n="vocabGoreng">Digoreng (Fried)</span>
+            </div>
+            <div class="vocab-pill">
+              <span class="vocab-term">Bakar</span>
+              <span class="vocab-def" data-i18n="vocabBakar">Dibakar arang (Grilled)</span>
+            </div>
+            <div class="vocab-pill">
+              <span class="vocab-term">Kuah / Soto</span>
+              <span class="vocab-def" data-i18n="vocabKuah">Berkuah sup (Soup broth)</span>
+            </div>
+            <div class="vocab-pill">
+              <span class="vocab-term">Tidak Pedas</span>
+              <span class="vocab-def" data-i18n="vocabTidakPedas">Non-Spicy (Zero chili)</span>
+            </div>
+            <div class="vocab-pill">
+              <span class="vocab-term">Kurang Manis</span>
+              <span class="vocab-def" data-i18n="vocabKurangManis">Less sweet</span>
+            </div>
+            <div class="vocab-pill">
+              <span class="vocab-term">Es Teh Manis</span>
+              <span class="vocab-def" data-i18n="vocabEsTeh">Iced sweet jasmine tea</span>
+            </div>
+            <div class="vocab-pill">
+              <span class="vocab-term">Kerupuk</span>
+              <span class="vocab-def" data-i18n="vocabKerupuk">Crispy crackers</span>
+            </div>
+            <div class="vocab-pill">
+              <span class="vocab-term">Bungkus</span>
+              <span class="vocab-def" data-i18n="vocabBungkus">Take away / To-go</span>
+            </div>
+          </div>
+          <div class="guide-helper-tip">
+            <span class="tip-icon">💡</span>
+            <span data-i18n="vocabTip">Tips: Anda bisa langsung meminta "Tolong buatkan tidak pedas ya" kepada koki di warung makan!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Dish Details Modal -->
+  <div class="modal-backdrop" id="dishModalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Tutup jendela rincian">✕</button>
+      <div class="modal-content" id="modalDynamicContent">
+        <!-- Filled dynamically by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbot Floating Widget -->
+  <div class="chatbot-container" id="chatbotContainer">
+    <!-- Floating Toggle Button -->
+    <button type="button" class="chat-launcher-btn" id="chatLauncherBtn" aria-label="Buka Chatbot AI Foodies">
+      <div class="launcher-avatar">
+        <span class="launcher-icon">🍲</span>
+        <span class="online-indicator"></span>
+      </div>
+      <div class="launcher-text">
+        <strong data-i18n="chatLauncherTitle">Tanya AI Foodies</strong>
+        <span data-i18n="chatLauncherSub">Konsultasi Kuliner 24/7</span>
+      </div>
+    </button>
+
+    <!-- Chat Window Popup -->
+    <div class="chat-window" id="chatWindow" aria-hidden="true">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="header-avatar">
+            <span>👨‍🍳</span>
+            <span class="online-dot"></span>
+          </div>
+          <div>
+            <h4 class="chat-bot-name">Chef Nusantara AI</h4>
+            <p class="chat-bot-status" data-i18n="chatStatusText">Ahli Kuliner & Sejarah Makanan Indonesia</p>
+          </div>
+        </div>
+
+        <div class="chat-header-actions">
+          <button type="button" class="btn-chat-action" id="chatResetBtn" title="Reset percakapan" aria-label="Reset chat">🔄</button>
+          <button type="button" class="btn-chat-action" id="chatCloseBtn" title="Tutup chat" aria-label="Tutup chat">✕</button>
+        </div>
+      </div>
+
+      <!-- Quick Prompt Suggestion Chips -->
+      <div class="chat-quick-chips" id="chatQuickChips">
+        <button type="button" class="chip-item" data-prompt="Apa rekomendasi makanan Indonesia yang tidak pedas sama sekali untuk wisatawan pemula?">
+          🌱 <span data-i18n="chipNonSpicy">Menu Bebas Pedas</span>
+        </button>
+        <button type="button" class="chip-item" data-prompt="Jelaskan sejarah dan filosofi di balik kelezatan Rendang Padang!">
+          🥩 <span data-i18n="chipRendangStory">Kisah Rendang</span>
+        </button>
+        <button type="button" class="chip-item" data-prompt="Bagaimana cara memesan dan etika makan di Rumah Makan Padang?">
+          🍛 <span data-i18n="chipPadangStyle">Cara Makan Padang</span>
+        </button>
+        <button type="button" class="chip-item" data-prompt="Apa saja pilihan kuliner vegetarian khas Indonesia selain gado-gado?">
+          🥗 <span data-i18n="chipVeggie">Opsi Vegetarian</span>
+        </button>
+      </div>
+
+      <!-- Messages Body -->
+      <div class="chat-messages" id="chatMessages">
+        <div class="message-row bot-row">
+          <div class="msg-avatar">👨‍🍳</div>
+          <div class="msg-bubble">
+            <p data-i18n="chatGreeting">
+              Halo! Selamat datang di <strong>Foodies</strong>. Saya asisten kuliner pintar Anda. Mau rekomendasi makanan khas daerah tertentu, tips menu tanpa pedas, atau ingin tahu sejarah suatu masakan Nusantara? Silakan tanyakan apa saja!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Preview Row if user attaches an image -->
+      <div class="chat-attachment-preview" id="chatAttachmentPreview" style="display: none;">
+        <img src="" alt="Lampiran Foto Makanan" id="attachmentPreviewImg">
+        <div class="attachment-info">
+          <span id="attachmentFileName">foto-makanan.jpg</span>
+          <button type="button" class="btn-remove-attachment" id="btnRemoveAttachment" aria-label="Hapus gambar">✕</button>
+        </div>
+      </div>
+
+      <!-- Chat Input Area -->
+      <form class="chat-input-bar" id="chatForm">
+        <input type="file" id="chatFileInput" accept="image/*" style="display: none;">
+        <button type="button" class="btn-upload-file" id="btnAttachFile" title="Unggah foto makanan untuk diidentifikasi" aria-label="Lampirkan foto">
+          📷
+        </button>
+        <input type="text" id="chatPromptInput" class="chat-prompt-input" placeholder="Tanyakan seputar makanan Indonesia..." data-i18n-placeholder="chatInputPlaceholder" autocomplete="off">
+        <button type="submit" class="btn-send-message" id="btnSendChat" aria-label="Kirim Pesan">
+          <span>➤</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <div class="brand-logo footer-logo">
+          <span class="logo-symbol">🌶️</span>
+          <span class="logo-title">Foodies<span class="dot">.</span></span>
+        </div>
+        <p class="footer-tagline" data-i18n="footerTagline">
+          Merayakan warisan gastronomi terkaya di dunia. Menjembatani rasa, budaya, dan keramahan Indonesia untuk seluruh generasi dan penjuru dunia.
+        </p>
+        <div class="footer-lang-pills">
+          <button type="button" class="btn-footer-lang active" data-lang="id">🇮🇩 Bahasa Indonesia</button>
+          <button type="button" class="btn-footer-lang" data-lang="en">🇬🇧 English</button>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading" data-i18n="footNavTitle">Navigasi Utama</h4>
+        <ul class="footer-nav">
+          <li><a href="#hero" data-i18n="navHome">Beranda</a></li>
+          <li><a href="#recommendations" data-i18n="navRecs">Rekomendasi Wisata</a></li>
+          <li><a href="#regions" data-i18n="navRegions">Jelajah Kepulauan</a></li>
+          <li><a href="#tourist-guide" data-i18n="navGuide">Panduan Wisatawan</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading" data-i18n="footIconsTitle">Ikon Kuliner Nasional</h4>
+        <ul class="footer-nav">
+          <li><a href="javascript:void(0)" class="quick-dish-link" data-dish-id="rendang">Rendang Daging Sapi</a></li>
+          <li><a href="javascript:void(0)" class="quick-dish-link" data-dish-id="sate-ayam">Sate Ayam Madura</a></li>
+          <li><a href="javascript:void(0)" class="quick-dish-link" data-dish-id="nasi-goreng">Nasi Goreng Spesial</a></li>
+          <li><a href="javascript:void(0)" class="quick-dish-link" data-dish-id="soto-betawi">Soto Betawi Gurih</a></li>
+          <li><a href="javascript:void(0)" class="quick-dish-link" data-dish-id="gado-gado">Gado-Gado Segar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading" data-i18n="footAITitle">Asisten Kuliner Pintar</h4>
+        <p class="footer-text-small" data-i18n="footAIDesc">
+          Didukung teknologi AI dengan endpoint langsung ke panduan gastronomi Nusantara. Tersedia dalam dwibahasa untuk wisatawan global.
+        </p>
+        <button type="button" class="btn btn-secondary btn-sm" id="btnFooterOpenChat" data-i18n="footAIBtn">
+          Buka Percakapan AI
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Foodies Nusantara. Dibuat dengan cinta untuk kekayaan kuliner Indonesia.</p>
+        <p class="footer-credit" data-i18n="footerCredit">Dirancang untuk pecinta kuliner dari segala generasi dan bangsa.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
