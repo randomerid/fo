@@ -10,7 +10,7 @@ const ai = new GoogleGenAI({});
 
 app.use(express.json());
 app.use(express.static('public'));
-const PORT = 3000;
+const PORT = 4000;
 const model = "gemini-2.5-flash-lite";
 
 const system_prompt = `
