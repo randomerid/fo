@@ -76,7 +76,7 @@ function getDefaultFilePrompt(contentType) {
     }
 }
 
-app.post('/api/chat', upload.any(), async (req, res) => {
+async function handleChat(req, res) {
     try {
         let { prompt, sessionId } = req.body || {};
         const files = req.files && req.files.length > 0 ? req.files : (req.file ? [req.file] : []);
@@ -128,8 +128,10 @@ app.post('/api/chat', upload.any(), async (req, res) => {
         console.error("Error in /api/chat:", error);
         res.status(500).json({ message: error.message });
     }
-});
+}
 
+app.post('/api/chat', upload.any(), handleChat);
+app.post('/chat', upload.any(), handleChat);
 
 const sessions = new Map();
 function getSessionHistory(sessionId) {
@@ -139,7 +141,11 @@ function getSessionHistory(sessionId) {
     return sessions.get(sessionId);
 }
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+export default app;
+
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
 
